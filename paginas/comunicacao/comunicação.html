@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunicação</title>
+   <link rel="website icon"  type="png" href="/images/logo.PNG.png">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#FF6B00',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<link id="style1"  rel="stylesheet" href="comunicacao.css">
+<link id="style-escuro"     rel="stylesheet" href="Modo escuro.css" disabled> 
+</head>
+<body>
+    <div class="tema-escuro">
+    <!-- Cabeçalho -->
+
+    <nav class="fundo-cabecalho">
+
+        <div class="container">
+            <!-- Colocação da logo no HTML -->
+            <a href="#" class="logo">
+                <img src="/images/logo.PNG.png" alt="Logo" class="Logo"> <!-- Ajuste o tamanho conforme necessário -->
+            </a>
+
+            <!-- Div dos botões da tela de inicio -->
+            <div id="Centralizar">
+                <a id="link-menu" href="/paginas/inicio/inicio.html">Início</a>
+                <a id="link-menu" href="/paginas/beneficios/beneficios.html">Benefícios</a>
+                <a id="link-menu" href="/paginas/comunicacao/comunicação.html">Comunicação</a>
+                <a id="link-menu" href="/paginas/seguranca/segurança.html">Segurança</a>
+                <a id="link-menu" href="/paginas/suporte/suporte.html">Suporte</a>
+                <a id="link-menu" href="/paginas/chat/chat.html">Chat</a>
+                <a id="link-menu" href="/paginas/tarefas/tarefas.html">Tarefas</a>
+                <a id="link-menu" href="/paginas/perfil/perfil.html">Perfil</a>
+            </div>
+            <div id="botoes-login">
+                <a id="link-entrar" href="AreaLogin.html">Entrar</a>
+                <a id="botao-registrar" href="AreaRegistro.html">Registrar</a>
+            </div>
+        </div>
+    </nav>
+    </div>
+<!-- Fim do cabeçalho -->
+
+
+<!-- Página de Comunicação -->
+<section id="comunicacao">
+  <!-- Fundo da tela de comunicação -->
+  <div class="comunicacao-container">
+    <!-- Texto do cabeçalho da área de comunicação -->
+    <div class="comunicacao-cabecalho">
+      <h2 class="comunicacao-titulo">Comunicação Segura e Eficiente</h2>
+      <p class="comunicacao-subtitulo">
+        Conecte-se com sua equipe através de uma plataforma de comunicação integrada e protegida.
+      </p>
+    </div>
+  </div>
+
+   <!-- Parte da barra de pesquisa "imitação do chat" -->
+<div class="chat-box">
+  <div class="chat-grid">
+    <div class="chat-col">
+      <div class="chat-input-container">
+        <div class="input-wrapper">
+          <input id="Pesquisar" type="text" placeholder="Buscar contatos..." class="chat-input">
+          <div class="input-icon">
+            <i class="ri-search-line icon-cinza"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Área dos contatos -->
+      <div class="chat-contatos">
+        <div class="contatos-header">
+          <h3 class="contatos-titulo">Contatos</h3>
+          <div class="contatos-icone">
+            <i class="ri-add-line icon-primaria"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Foto do contato -->
+<div class="contato-wrapper">
+  <div id="contato-entorno" class="contato-item">
+    <div class="contato-avatar">
+      <span class="avatar-iniciais">AM</span>
+      <div class="avatar-status"></div>
+    </div>
+
+    <!-- 1º Contato -->
+    <div class="contato-info">
+      <p class="contato-nome">Ana Martins</p>
+      <p class="contato-status">Online</p>
+    </div>
+  </div>
+</div>
+
+
+              <!-- Foto do contato -->
+<div id="Contato-Selecionado" class="contato-item selecionado">
+  <div class="contato-avatar contato-rs">
+    <span class="avatar-iniciais iniciais-verde">RS</span>
+    <div class="avatar-status"></div>
+  </div>
+
+  <!-- 2º Contato -->
+  <div class="contato-info">
+    <p class="contato-nome">Rafael Silva</p>
+    <p class="contato-status">Online</p>
+  </div>
+</div>
+
+
+             <!-- Foto do contato -->
+<div id="contato-entorno" class="contato-item">
+  <div class="contato-avatar contato-jc">
+    <span class="avatar-iniciais iniciais-roxo">JC</span>
+    <div class="avatar-status status-ausente"></div>
+  </div>
+
+  <!-- 3º Contato -->
+  <div class="contato-info">
+    <p class="contato-nome">Juliana Costa</p>
+    <p class="contato-status">Ausente</p>
+  </div>
+</div>
+
+
+          <!-- Área dos grupos -->
+<div class="grupos-wrapper">
+  <div class="grupos-header">
+    <h3 class="grupos-titulo">Grupos</h3>
+    <div class="grupos-icone">
+      <i class="ri-add-line icon-primaria"></i>
+    </div>
+  </div>
+
+  <!-- Área de adicionar grupo -->
+  <div class="grupos-lista">
+    <div id="Grupos-Design" class="grupo-item">
+      <div class="grupo-avatar">
+        <i class="ri-team-line icon-primaria"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                  <!-- Grupo 1 -->
+<div class="grupo-item">
+  <div class="grupo-avatar">
+    <i class="ri-shield-line icon-primaria"></i>
+  </div>
+
+  <div class="grupo-info">
+    <p class="grupo-nome">Equipe de Desenvolvimento</p>
+    <p class="grupo-membros">8 membros</p>
+  </div>
+</div>
+
+
+                  <!-- Grupo 2 -->
+<div class="grupo-item">
+  <div class="grupo-avatar">
+    <i class="ri-shield-line icon-primaria"></i>
+  </div>
+
+  <div class="grupo-info">
+    <p class="grupo-nome">Segurança da Informação</p>
+    <p class="grupo-membros">5 membros</p>
+  </div>
+</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Área de Chat -->
+<div class="chat-area">
+  <div class="chat-header">
+    <div class="chat-header-info">
+      <div class="chat-avatar">
+        <span class="avatar-iniciais iniciais-verde">RS</span>
+        <div class="avatar-status"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+              
+            <!-- Cabeçalho da conversa -->
+<div class="chat-header-texto">
+  <p class="chat-nome">Rafael Silva</p>
+  <p class="chat-status">Online • Digitando...</p>
+</div>
+
+            
+            <!-- Botões de ação no cabeçalho do chat -->
+<div class="chat-botoes">
+  <div id="b1" class="chat-botao">
+    <i class="ri-phone-line"></i>
+  </div>
+  <div id="b2" class="chat-botao">
+    <i class="ri-vidicon-line"></i>
+  </div>
+  <div id="b3" class="chat-botao">
+    <i class="ri-more-2-line"></i>
+  </div>
+</div>
+
+          
+          <!-- Área das mensagens -->
+<div class="chat-mensagens-container">
+  <div class="chat-mensagens">
+    <div class="chat-mensagem-item">
+      <div class="chat-avatar-pequeno">
+        <span class="avatar-iniciais-pequeno iniciais-verde">RS</span>
+      </div>
+      <!-- Aqui você pode continuar a mensagem -->
+    </div>
+  </div>
+</div>
+
+                
+                <!-- 1º mensagem recebida -->
+<div class="chat-mensagem recebida">
+  <p>Bom dia! Como está o progresso do relatório de segurança?</p>
+  <p class="chat-horario">09:15</p>
+</div>
+
+<!-- 2º mensagem enviada -->
+<div class="chat-mensagem enviada">
+  <p>Olá Rafael! Estou finalizando a última seção sobre as vulnerabilidades encontradas no último mês.</p>
+  <p class="chat-horario">09:18</p>
+</div>
+
+<!-- 3º mensagem recebida com avatar -->
+<div class="chat-mensagem-com-avatar">
+  <div class="chat-avatar-pequeno">
+    <span class="avatar-iniciais-pequeno iniciais-verde">RS</span>
+  </div>
+  <div class="chat-mensagem recebida">
+    <p>Perfeito! Precisamos apresentar na reunião das 13h. Consegue compartilhar até lá?</p>
+    <p class="chat-horario">09:20</p>
+  </div>
+</div>
+
+<!-- 4º mensagem enviada -->
+<div class="chat-mensagem enviada bg-opacity-15">
+  <p>Sim, com certeza! Vou finalizar nos próximos 30 minutos e compartilhar com você para revisão.</p>
+  <p class="chat-horario">09:22</p>
+</div>
+
+              
+              <!-- 5º mensagem recebida com avatar -->
+<div class="chat-mensagem-com-avatar">
+  <div class="chat-avatar-pequeno">
+    <span class="avatar-iniciais-pequeno iniciais-verde">RS</span>
+  </div>
+  <div class="chat-mensagem recebida">
+    <p>Ótimo! Também precisamos discutir as novas medidas de segurança para o próximo trimestre. Vou compartilhar alguns documentos sobre isso.</p>
+    <p class="chat-horario">09:25</p>
+  </div>
+</div>
+
+          
+          <!-- Rodapé onde é escrito a mensagem -->
+<div class="chat-rodape">
+  <div class="chat-rodape-itens">
+    <div id="iconemensagem0" class="chat-icon">
+      <i class="ri-attachment-2-line"></i>
+    </div>
+    <div id="iconemensagem1" class="chat-icon">
+      <i class="ri-image-line"></i>
+    </div>
+    <div id="iconemensagem2" class="chat-icon">
+      <i class="ri-emotion-line"></i>
+    </div>
+    <input id="Mensagem-Digitada" type="text" placeholder="Digite sua mensagem..." class="chat-input-msg" />
+    <div id="iconemensagem3" class="chat-icon enviar">
+      <i class="ri-send-plane-fill"></i>
+    </div>
+  </div>
+</div>
+
+</section>
+<!-- Fim da página de comunicação -->
+  
+
+<!-- Rodapé -->
+<footer class="rodape">
+  <div class="rodape-container">
+    <div class="rodape-grid">
+      
+      <!-- Logo e descrição -->
+      <div>
+        <a href="#" class="rodape-logo">
+          <img src="/images/logo.PNG.png" alt="Log" class="logo-img">
+        </a>
+        <p class="rodape-descricao">Sua plataforma completa para gerenciamento de tarefas e comunicação segura.</p>
+        <div class="rodape-redes">
+          <a href="#"><i class="ri-facebook-fill"></i></a>
+          <a href="#"><i class="ri-twitter-fill"></i></a>
+          <a href="#"><i class="ri-instagram-fill"></i></a>
+          <a href="#"><i class="ri-linkedin-fill"></i></a>
+        </div>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <h3 class="rodape-titulo">Empresa</h3>
+        <ul class="rodape-lista">
+          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#">Carreiras</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+      <!-- Suporte -->
+      <div>
+        <h3 class="rodape-titulo">Suporte</h3>
+        <ul class="rodape-lista">
+          <li><a href="#">Centro de ajuda</a></li>
+          <li><a href="#">Documentação</a></li>
+          <li><a href="#">Status do sistema</a></li>
+          <li><a href="#">Política de privacidade</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="rodape-titulo">Fique por dentro</h3>
+        <p class="rodape-descricao">Inscreva-se para receber as últimas novidades e atualizações.</p>
+        <form class="rodape-form">
+          <input type="email" placeholder="Seu email" class="rodape-input">
+          <button type="submit" class="rodape-botao">Inscrever</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Direitos autorais -->
+    <div class="rodape-direitos">
+      <p>©️ 2025 SecureTask. Todos os direitos reservados.</p>
+      <div class="rodape-links">
+        <a href="#">Termos de Serviço</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Fim do Rodapé -->
+
+</body>
+<script src="tcc.js"></script>
+<script src="comunicacao.js"></script>
+</html>

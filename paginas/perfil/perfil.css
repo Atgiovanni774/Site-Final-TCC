@@ -1,0 +1,619 @@
+/* Fontes e Estilos Básicos */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #e5e7eb;
+}
+
+
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+
+/* --- Estilização do Cabeçalho --- */
+.fundo-cabecalho {
+  background-color: #e5e7eb; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+  position: sticky; 
+  top: 0;
+  z-index: 50; 
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Mantém os itens nas extremidades */
+  align-items: center; /* Centraliza verticalmente os itens do cabeçalho */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.Logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* Menu de navegação */
+#Centralizar { /* Renomeei para ser mais descritivo, como .menu-nav ou .nav-links */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; 
+ 
+  gap: 1rem; 
+}
+
+@media (min-width: 768px) {
+  #Centralizar {
+    gap: 2rem;
+  }
+}
+
+#link-menu {
+  color: #1f2937;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#link-menu:hover {
+  color: #f97316;
+}
+
+/* Botões de login/registro */
+#botoes-login {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente os botões */
+  gap: 1rem;
+}
+
+#link-entrar {
+  color: #1f2937;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#link-entrar:hover {
+  color: #f97316;
+}
+
+#botao-registrar {
+  background-color: #f97316;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+#botao-registrar:hover {
+  opacity: 0.9;
+}
+
+/* --- Fim do cabeçalho --- */
+
+/* --- Container geral do Perfil --- */
+#perfil {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  padding: 48px 16px;
+}
+
+.grid-perfil {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .grid-perfil {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Cartões laterais */
+.card-perfil,
+.card-redes {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* **Centraliza os itens verticalmente dentro do perfil-info** */
+}
+
+.foto-perfil {
+  width: 128px;
+  height: 128px;
+  border-radius: 9999px;
+  overflow: hidden;
+  background-color: #e5e7eb;
+  margin-bottom: 16px;
+}
+
+.foto-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nome-perfil {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center; /* **Centraliza o texto do nome do perfil** */
+}
+
+.status-perfil {
+  display: flex;
+  align-items: center; /* Centraliza os itens verticalmente */
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 16px;
+  justify-content: center; /* **Centraliza o status do perfil horizontalmente** */
+}
+
+.status-indicador {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  margin-right: 6px;
+}
+
+.verde {
+  background-color: #22c55e;
+}
+
+.amarelo {
+  background-color: #eab308;
+}
+
+.vermelho {
+  background-color: #ef4444;
+}
+
+.cinza {
+  background-color: #9ca3af;
+}
+
+.btn-alterar-foto {
+  font-size: 0.875rem;
+  color: #f97316;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.detalhes-perfil {
+  width: 100%;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 16px;
+}
+
+.linha-status,
+.linha-membro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Centraliza os itens verticalmente */
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.menu-status {
+  position: relative;
+}
+
+.btn-status-toggle {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-status {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.opcao-status {
+  display: flex;
+  align-items: center; /* Centraliza os itens verticalmente */
+  font-size: 0.875rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.opcao-status:hover {
+  background-color: #f9fafb;
+  border-radius: 6px;
+}
+
+/* Redes sociais */
+.lista-redes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-rede {
+  display: flex;
+  align-items: center; 
+  gap: 12px;
+}
+
+.item-rede i {
+  font-size: 1.25rem;
+}
+
+.item-rede input {
+  flex: 1;
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+}
+
+.btn-adicionar-rede {
+  font-size: 0.875rem;
+  color: #f97316;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Conteúdo do perfil */
+.perfil-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-infos,
+.card-preferencias,
+.card-seguranca {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-infos h2,
+.card-preferencias h3,
+.card-seguranca h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center; 
+}
+
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .formulario {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .col-span-2 {
+    grid-column: span 2;
+  }
+}
+
+.campo label {
+  display: block;
+  font-size: 0.875rem;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.acoes {
+  display: flex;
+  justify-content: flex-end; 
+  margin-top: 16px;
+}
+
+.btn-salvar {
+  background-color: #f97316;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.btn-salvar:hover {
+  background-color: #f97316;
+}
+
+/* --- Preferências e segurança --- */
+.grid-preferencias {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+
+/* Estilo para cada opção de preferência */
+.opcao {
+  display: flex;
+  justify-content: space-between; /* Mantém label e toggle nas extremidades */
+  align-items: center; /* Centraliza verticalmente os itens */
+  margin-bottom: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.opcao:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+/* Estilo para o texto do label */
+.opcao label {
+  color: #555;
+  font-size: 16px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+/* --- Estilos para TODOS os Toggle Switches (conforme solicitado anteriormente) --- */
+.opcao input[type="checkbox"] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.opcao input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.opcao input[type="checkbox"]:checked {
+  background-color: #f97316; /* Usando a cor laranja do seu tema */
+}
+
+.opcao input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+@media (min-width: 768px) {
+  .grid-preferencias {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.btn-seguranca,
+.btn-excluir-conta {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  margin-bottom: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-seguranca:hover {
+  background-color: #f9fafb;
+}
+
+.btn-excluir-conta {
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+.btn-excluir-conta:hover {
+  background-color: #fef2f2;
+}
+
+/* --- Rodapé --- */
+.rodape {
+  background-color: #111827; /* bg-gray-900 */
+  color: white;
+  padding: 3rem 0;
+}
+
+.rodape-container {
+  max-width: 1200px;
+  /* Centraliza o container horizontalmente */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.rodape-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  /* Este grid é centralizado por seu pai (.rodape-container) */
+}
+
+@media (min-width: 768px) {
+  .rodape-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.rodape-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.5rem;
+}
+
+.rodape-descricao {
+  color: #9ca3af; /* text-gray-400 */
+  margin-bottom: 1rem;
+}
+
+.rodape-redes {
+  display: flex;
+  gap: 1rem;
+}
+
+.rodape-redes a {
+  color: #9ca3af;
+  transition: color 0.3s ease;
+}
+
+.rodape-redes a:hover {
+  color: #f97316; /* hover:text-orange-500 */
+}
+
+.rodape-titulo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.rodape-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rodape-lista li {
+  margin-bottom: 0.5rem;
+}
+
+.rodape-lista a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.rodape-lista a:hover {
+  color: #f97316;
+}
+
+.rodape-form {
+  display: flex;
+}
+
+.rodape-input {
+  flex: 1;
+  background-color: #1f2937; /* bg-gray-800 */
+  border: none;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: white;
+}
+
+.rodape-botao {
+  background-color: #f97316;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.rodape-direitos {
+  border-top: 1px solid #1f2937; /* border-gray-800 */
+  margin-top: 3rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* **Centraliza os itens verticalmente** */
+  gap: 1rem;
+  text-align: center; /* **Centraliza o texto** */
+}
+
+@media (min-width: 768px) {
+  .rodape-direitos {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.rodape-direitos p {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.rodape-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.rodape-links a {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.rodape-links a:hover {
+  color: #f97316;
+}
+
+/* --- Fim do Rodapé --- */
