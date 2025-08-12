@@ -332,6 +332,11 @@ CREATE TABLE IF NOT EXISTS Tarefas_Tags (
         REFERENCES Tags(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO Departamentos(nome) VALUES("TI");
+INSERT INTO Departamentos(nome) VALUES("Recursos Humanos");
+INSERT INTO Departamentos(nome) VALUES("Financeiro");
+INSERT INTO Departamentos(nome) VALUES("Marketing");
+
 
 ALTER TABLE tarefas
 ADD COLUMN complexidade ENUM('simples', 'moderada', 'complexa') DEFAULT 'moderada',

@@ -16,48 +16,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
     const modalSenha = document.getElementById("modal-senha");
-const btnSalvarSenha = document.getElementById("btn-salvar-senha");
-const btnFecharModal = document.getElementById("btn-fechar-modal");
+    const btnSalvarSenha = document.getElementById("btn-salvar-senha");
+    const btnFecharModal = document.getElementById("btn-fechar-modal");
 
-// Abrir modal (pode ter mais de um botão)
-const botoesAbrirModal = document.querySelectorAll("#botao-abrir-modal, #abrir-modal-senha-final");
-botoesAbrirModal.forEach(botao => {
-    botao?.addEventListener("click", () => {
-        modalSenha?.classList.remove("hidden");
+    // Abrir modal (pode ter mais de um botão)
+    const botoesAbrirModal = document.querySelectorAll("#botao-abrir-modal, #abrir-modal-senha-final");
+    botoesAbrirModal.forEach(botao => {
+        botao?.addEventListener("click", () => {
+            modalSenha?.classList.remove("hidden");
+        });
     });
-});
 
-// Fechar modal
-btnFecharModal?.addEventListener("click", () => {
-    modalSenha?.classList.add("hidden");
-});
+    // Fechar modal
+    btnFecharModal?.addEventListener("click", () => {
+        modalSenha?.classList.add("hidden");
+    });
 
-// Salvar nova senha
-btnSalvarSenha?.addEventListener("click", async () => {
-    const novaSenha = document.getElementById("nova-senha").value.trim();
+    // Salvar nova senha
+    btnSalvarSenha?.addEventListener("click", async () => {
+        const novaSenha = document.getElementById("nova-senha").value.trim();
 
-    if (!novaSenha || novaSenha.length < 6) {
-        alert("A nova senha deve ter pelo menos 6 caracteres.");
-        return;
-    }
-
-    const user = auth.currentUser;
-
-    if (user) {
-        try {
-            await updatePassword(user, novaSenha);
-            alert("Senha atualizada com sucesso!");
-            modalSenha?.classList.add("hidden");
-        } catch (error) {
-            console.error("Erro ao atualizar a senha:", error);
-            alert("Erro ao alterar senha: " + error.message);
+        if (!novaSenha || novaSenha.length < 6) {
+            alert("A nova senha deve ter pelo menos 6 caracteres.");
+            return;
         }
-    } else {
-        alert("Usuário não autenticado.");
-    }
-});
 
-        const camposUsuario = [
+        const user = auth.currentUser;
+
+        if (user) {
+            try {
+                await updatePassword(user, novaSenha);
+                alert("Senha atualizada com sucesso!");
+                modalSenha?.classList.add("hidden");
+            } catch (error) {
+                console.error("Erro ao atualizar a senha:", error);
+                alert("Erro ao alterar senha: " + error.message);
+            }
+        } else {
+            alert("Usuário não autenticado.");
+        }
+    });
+
+    const camposUsuario = [
         "full-name",
         "display-name",
         "email",
@@ -71,7 +71,9 @@ btnSalvarSenha?.addEventListener("click", async () => {
         const dadosSalvos = JSON.parse(localStorage.getItem("dadosPerfil"));
         if (dadosSalvos) {
             camposUsuario.forEach(id => {
+                console.log(`Id: ${id}`)
                 const campo = document.getElementById(id);
+                console.log(`Id: ${id}\nCampo: ${campo}`)
                 if (campo && dadosSalvos[id]) {
                     if (campo.tagName === "SELECT") {
                         campo.value = dadosSalvos[id];
@@ -133,8 +135,8 @@ btnSalvarSenha?.addEventListener("click", async () => {
         });
     }
 
-    
-    
+
+
     // Modo escuro
     const checkbox = document.getElementById("dark-mode");
     const darkModeStyle = document.getElementById("style-escuro");
@@ -142,7 +144,7 @@ btnSalvarSenha?.addEventListener("click", async () => {
 
     if (!paginaPerfil) return;
 
-    const isDark = localStorage.getItem("modo-escuro") === "true";         
+    const isDark = localStorage.getItem("modo-escuro") === "true";
     if (darkModeStyle) darkModeStyle.disabled = !isDark;
 
     paginaPerfil.classList.add("modo-transicao");
@@ -157,41 +159,41 @@ btnSalvarSenha?.addEventListener("click", async () => {
             paginaPerfil.classList.remove("modo-transicao");
         }, 400);
     });
-    
-console.log("abrirModalSenha:", window.abrirModalSenha);
+
+    console.log("abrirModalSenha:", window.abrirModalSenha);
 
 
-window.abrirModalSenha = function () {
-  const modal = document.getElementById("modal-senha");
-  if (modal) modal.classList.remove("hidden");
-};
+    window.abrirModalSenha = function () {
+        const modal = document.getElementById("modal-senha");
+        if (modal) modal.classList.remove("hidden");
+    };
 
-window.fecharModalSenha = function () {
-  const modal = document.getElementById("modal-senha");
-  if (modal) modal.classList.add("hidden");
-};
+    window.fecharModalSenha = function () {
+        const modal = document.getElementById("modal-senha");
+        if (modal) modal.classList.add("hidden");
+    };
 
-window.salvarNovaSenha = async function () {
-  const novaSenha = document.getElementById("nova-senha")?.value;
-  if (!novaSenha || novaSenha.length < 6) {
-    alert("A nova senha deve ter pelo menos 6 caracteres.");
-    return;
-  }
+    window.salvarNovaSenha = async function () {
+        const novaSenha = document.getElementById("nova-senha")?.value;
+        if (!novaSenha || novaSenha.length < 6) {
+            alert("A nova senha deve ter pelo menos 6 caracteres.");
+            return;
+        }
 
-  const user = getAuth().currentUser;
-  if (user) {
-    try {
-      await updatePassword(user, novaSenha);
-      alert("Senha atualizada com sucesso!");
-      fecharModalSenha();
-    } catch (error) {
-      console.error("Erro ao atualizar a senha:", error);
-      alert("Erro ao alterar senha: " + error.message);
-    }
-  } else {
-    alert("Usuário não autenticado.");
-  }
-};
+        const user = getAuth().currentUser;
+        if (user) {
+            try {
+                await updatePassword(user, novaSenha);
+                alert("Senha atualizada com sucesso!");
+                fecharModalSenha();
+            } catch (error) {
+                console.error("Erro ao atualizar a senha:", error);
+                alert("Erro ao alterar senha: " + error.message);
+            }
+        } else {
+            alert("Usuário não autenticado.");
+        }
+    };
 
 
 });
