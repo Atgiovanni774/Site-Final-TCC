@@ -1,4 +1,8 @@
-
+ document.addEventListener("DOMContentLoaded", () => {
+    const estiloEscuro = document.getElementById("style-escuro");
+    const isDark = localStorage.getItem("modo-escuro") === "true";
+    if (estiloEscuro) estiloEscuro.disabled = !isDark;
+  });
 
 // Evento de login e registro
 document.addEventListener('DOMContentLoaded', function() {
@@ -134,3 +138,25 @@ function handleChecked(checked) {
   alert(`New value: ${checked}`)
   checkbox.checked = checked
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    let usuarioLogado = localStorage.getItem("usuarioLogado");
+
+    if (usuarioLogado === "true") {
+        let btnEntrar = document.getElementById("btnEntrar");
+        let btnRegistrar = document.getElementById("btnRegistrar");
+
+        if (btnEntrar) {
+            btnEntrar.textContent = "Logout";
+            btnEntrar.href = "#";
+            btnEntrar.addEventListener("click", function () {
+                localStorage.removeItem("usuarioLogado");
+                window.location.reload();
+            });
+        }
+
+        if (btnRegistrar) {
+            btnRegistrar.style.display = "none";
+        }
+    }
+});

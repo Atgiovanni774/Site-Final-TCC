@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TalkyCs - Sua plataforma de gerenciamento de tarefas</title>
-<link rel="website icon"  type="png" href="/images/logo.PNG.png">
+<link rel="website icon"  type="png" href="/Tcc/images/logo.PNG.png">
 <script src="https://cdn.tailwindcss.com/3.4.16"></script>
 <script>tailwind.config={theme:{extend:{colors:{primary:'#FF6B00',secondary:'#000000'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}
 </script>
@@ -14,7 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
 <link id="style1"  rel="stylesheet" href="./suporte.css">
-<!-- <link id="style-escuro" rel="stylesheet" href="Modo escuro.css" disabled>  -->
+  <link id="style-escuro" rel="stylesheet" href="/assets/css/modo-escuro.css" disabled>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -30,27 +30,26 @@
       </a>
 
       <!-- Div dos botões da tela de inicio -->
-      <div id="Centralizar">
-          <a id="link-menu" href="/paginas/inicio/inicio.html">Início</a>
-          <a id="link-menu" href="/paginas/beneficios/beneficios.html">Benefícios</a>
-          <a id="link-menu" href="/paginas/comunicacao/comunicação.html">Comunicação</a>
-          <a id="link-menu" href="/paginas/seguranca/segurança.html">Segurança</a>
-          <a id="link-menu" href="/paginas/suporte/suporte.html">Suporte</a>
-          <a id="link-menu" href="/paginas/chat/chat.html">Chat</a>
-          <a id="link-menu" href="/paginas/tarefas/tarefas.html">Tarefas</a>
-          <a id="link-menu" href="/paginas/perfil/perfil.html">Perfil</a>
-      </div>
-      <div id="botoes-login">
-          <a id="link-entrar" href="AreaLogin.html">Entrar</a>
-          <a id="botao-registrar" href="AreaRegistro.html">Registrar</a>
-      </div>
+     <div id="Centralizar">
+                <a id="link-menu" href="/paginas/inicio/inicio.html">Início</a>
+                <a id="link-menu" href="/paginas/beneficios/beneficios.html">Benefícios</a>
+                <a id="link-menu" href="/paginas/seguranca/segurança.html">Segurança</a>
+                <a id="link-menu" href="/paginas/suporte/suporte.html">Suporte</a>
+                <a id="link-menu" href="/paginas/chat/chat.html">Chat</a>
+                <a id="link-menu" href="/paginas/tarefas/tarefas.html">Tarefas</a>
+                <a id="link-menu" href="/paginas/perfil/perfil.html">Perfil</a>
+            </div>
+            <div id="botoes-login">
+                <a id="link-entrar" href="/paginas/login/login.html">Entrar</a>
+                <a id="botao-registrar" href="/paginas/registro/registro.html">Registrar</a>
+            </div>
+        </div>
+    </nav>
     </div>
-  </nav>
-    
 <!-- Fim do cabeçalho -->
 
 
-<div id="comunicacao" class="tab-content bg-gray-200">
+<div id="comunicacao">
   <div id="container" class="container">
     <h1 class="titulo-principal">Canais de Comunicação</h1>
     <p class="subtitulo-principal">
@@ -61,7 +60,7 @@
       <!-- Formulário de contato -->
       <div class="contato-form">
         <h2 class="titulo-form">Entre em contato</h2>
-        <form>
+        <form onsubmit="sendMail()">
           <div class="form-group">
             <label for="name" class="form-label">Nome completo</label>
             <input type="text" id="name" class="form-input" />
@@ -85,7 +84,7 @@
             <label for="message" class="form-label">Mensagem</label>
             <textarea id="message" rows="4" class="form-textarea"></textarea>
           </div>
-          <button type="submit" class="btn-submit">Enviar mensagem</button>
+          <button id="btn_form" type="button" class="btn-submit">Enviar mensagem</button>
         </form>
       </div>
 
@@ -100,7 +99,7 @@
             <div class="info-canais">
               <h3 class="atendimento-titulo">Suporte técnico</h3>
               <p class="atendimento-desc">Disponível 24/7 para resolver problemas técnicos</p>
-              <a href="mailto:suporte@exemplo.com.br" class="link-atendimento">suporte@exemplo.com.br</a>
+              <a href="mailto:TalkyCs.Corporativo@gmail.com" class="link-atendimento">TalkyCs.Corporativo@gmail.com</a>
             </div>
           </li>
           <li class="item-atendimento">
@@ -136,7 +135,7 @@
               <i class="ri-arrow-down-s-line icon-faq"></i>
             </button>
             <div class="faq-answer hidden">
-              <p>Para recuperar sua senha, clique em "Esqueci minha senha" na tela de login. Você receberá um e-mail com instruções para criar uma nova senha.</p>
+              <p class="resposta-faq">Para recuperar sua senha, clique em "Esqueci minha senha" na tela de login. Você receberá um e-mail com instruções para criar uma nova senha.</p>
             </div>
           </div>
           <div class="divider"></div>
@@ -146,7 +145,7 @@
               <i class="ri-arrow-down-s-line icon-faq"></i>
             </button>
             <div class="faq-answer hidden">
-              <p>Na aba de Chat, clique no botão "+" e digite o e-mail ou nome de usuário da pessoa que deseja adicionar. Você também pode escanear o QR code do contato.</p>
+              <p class="resposta-faq">Na aba de Chat, clique no botão "+" e digite o e-mail ou nome de usuário da pessoa que deseja adicionar. Você também pode escanear o QR code do contato.</p>
             </div>
           </div>
           <div class="divider"></div>
@@ -156,7 +155,7 @@
               <i class="ri-arrow-down-s-line icon-faq"></i>
             </button>
             <div class="faq-answer hidden">
-              <p>Sim, nossa plataforma está disponível para iOS e Android. Você pode baixar os aplicativos nas respectivas lojas e sincronizar todas as suas conversas e contatos.</p>
+              <p class="resposta-faq">Sim, nossa plataforma está disponível para iOS e Android. Você pode baixar os aplicativos nas respectivas lojas e sincronizar todas as suas conversas e contatos.</p>
             </div>
           </div>
         </div>
@@ -232,6 +231,6 @@
 <!-- Fim do Rodapé -->
 
 </div>
-<script src="suporte.js"></script>
-<script src="Modo escuro.css"></script>
+<script src="/assets/css/modo-escuro.js"></script>
+<script src="./suporte.js"></script>
 </html>

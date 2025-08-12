@@ -337,8 +337,6 @@ ALTER TABLE tarefas
 ADD COLUMN complexidade ENUM('simples', 'moderada', 'complexa') DEFAULT 'moderada',
 ADD COLUMN tempo_estimado INT COMMENT 'Tempo estimado em minutos';
 
-
-
 DELIMITER //
 
 CREATE TRIGGER  atualiza_data_conclusao_tarefa

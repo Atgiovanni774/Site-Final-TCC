@@ -2,14 +2,14 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f3f4f6;
+  background-color: #F8F8FF;
   color: #1f2937;
   margin: 0;
   padding: 0;
 }
 
 .fundo-cabecalho {
-  background-color: #e5e7eb;
+  background-color: #F8F8FF;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -331,73 +331,6 @@ input:checked + .slider:before {
   margin-bottom: 1rem;
   color: #1f2937;
   text-align: center;
-}
-
-.visibilidade-perfil {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.controle-slider {
-  width: 100%;
-  max-width: 360px;
-}
-
-.slider-visibilidade {
-  width: 100%;
-  appearance: none;
-  height: 6px;
-  background: #e5e7eb;
-  border-radius: 10px;
-  outline: none;
-  margin-bottom: 0.5rem;
-}
-
-.slider-visibilidade::-webkit-slider-thumb {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  background: #f97316;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.opcoes-visibilidade {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.875rem;
-  position: relative;
-  margin-top: 0.25rem;
-}
-
-.opcoes-visibilidade span {
-  color: #6b7280;
-  font-weight: 400;
-  position: relative;
-  padding-top: 4px;
-}
-
-.opcoes-visibilidade .ativo {
-  color: #f97316;
-  font-weight: 600;
-}
-
-.opcoes-visibilidade .ativo::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 6px;
-  background-color: #f97316;
-  border-radius: 50%;
-  margin-top: 4px;
 }
 
 

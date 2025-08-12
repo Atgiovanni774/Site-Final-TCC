@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TalkyCs - Sua plataforma de gerenciamento de tarefas</title>
- <link rel="website icon"  type="png" href="/images/logo.PNG.png">
+ <link rel="website icon"  type="png" href="/Tcc/images/logo.PNG.png">
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>tailwind.config = {theme: {extend: {colors: { primary: '#FF6B00', secondary: '#000000' },borderRadius: {none: '0px',sm: '4px', DEFAULT: '8px',md: '12px',lg: '16px',xl: '20px','2xl': '24px','3xl': '32px',full: '9999px',button: '8px'}}}}
   </script>
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"/>
   <link id="style1" rel="stylesheet" href="tarefas.css" />
-  <link id="style-escuro" rel="stylesheet" href="Modo escuro.css" disabled />
+  <link id="style-escuro" rel="stylesheet" href="/assets/css/modo-escuro.css" disabled>
 </head>
 
 <body>
@@ -29,10 +29,9 @@
             </a>
 
             <!-- Div dos botões da tela de inicio -->
-            <div id="Centralizar">
+           <div id="Centralizar">
                 <a id="link-menu" href="/paginas/inicio/inicio.html">Início</a>
                 <a id="link-menu" href="/paginas/beneficios/beneficios.html">Benefícios</a>
-                <a id="link-menu" href="/paginas/comunicacao/comunicação.html">Comunicação</a>
                 <a id="link-menu" href="/paginas/seguranca/segurança.html">Segurança</a>
                 <a id="link-menu" href="/paginas/suporte/suporte.html">Suporte</a>
                 <a id="link-menu" href="/paginas/chat/chat.html">Chat</a>
@@ -40,342 +39,178 @@
                 <a id="link-menu" href="/paginas/perfil/perfil.html">Perfil</a>
             </div>
             <div id="botoes-login">
-                <a id="link-entrar" href="AreaLogin.html">Entrar</a>
-                <a id="botao-registrar" href="AreaRegistro.html">Registrar</a>
+                <a id="link-entrar" href="/paginas/login/login.html">Entrar</a>
+                <a id="botao-registrar" href="/paginas/registro/registro.html">Registrar</a>
             </div>
         </div>
     </nav>
     </div>
 <!-- Fim do cabeçalho -->
 
-  <!-- Conteúdo principal -->
-  <div class="tab-content bg-gray-200" id="tarefas">
-    <div class="max-w-6xl text-orange-500">
-      <div class="bg-gray-200 rounded-lg shadow-sm p-6">
-        <div class="flex justify-between items-center mb-8">
-          <h1 class="text-2xl font-bold text-gray-800">Minhas Tarefas</h1>
-          <button
-            id="newTaskBtn"
-            class="bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
-          >
-            <i class="ri-add-line mr-1"></i>
-            Nova Tarefa
+    <div class="container-tarefas">
+      <div class="painel">
+        <div class="cabecalho">
+          <h1 class="titulo">Minhas Tarefas</h1>
+          <button id="newTaskBtn" class="btn-nova-tarefa">
+            <i class="ri-add-line"></i> Nova Tarefa
           </button>
 
-          <!-- Modal Nova Tarefa -->
-          <div
-            id="newTaskModal"
-            class="fixed inset-0 bg-gray-900/50 flex items-center justify-center hidden z-50"
-          >
-            <div class="bg-white rounded-lg w-full max-w-xl mx-4">
-              <div class="p-6 border-b border-gray-200">
-                <h3 class="text-xl font-semibold text-gray-800">Nova Tarefa</h3>
+          <div id="newTaskModal" class="modal">
+            <div class="modal-conteudo">
+              <div class="modal-header">
+                <h3>Nova Tarefa</h3>
               </div>
-              <div class="p-6">
+              <div class="modal-body">
                 <form id="newTaskForm">
-                  <div class="space-y-4">
-                    <div>
-                      <label
-                        for="taskTitle"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >Título da tarefa</label
-                      >
-                      <input
-                        type="text"
-                        id="taskTitle"
-                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="taskDescription"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >Descrição</label
-                      >
-                      <textarea
-                        id="taskDescription"
-                        rows="4"
-                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                      ></textarea>
-                    </div>
-                    <div>
-                      <label
-                        for="taskDueDate"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >Data de prazo</label
-                      >
-                      <input
-                        type="date"
-                        id="taskDueDate"
-                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="taskPriority"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >Prioridade</label
-                      >
-                      <div class="relative">
-                        <select
-                          id="taskPriority"
-                          class="w-full px-4 py-2 border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8"
-                        >
-                          <option value="low">Baixa</option>
-                          <option value="medium">Média</option>
-                          <option value="high">Alta</option>
-                        </select>
-                        <div
-                          class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-gray-500"
-                        >
-                          <i class="ri-arrow-down-s-line"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <label
-                        for="taskAssignee"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >Responsáveis</label
-                      >
-                      <div class="relative">
-                        <select
-                          id="taskAssignee"
-                          class="w-full px-4 py-2 border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8"
-                          multiple
-                        >
-                          <option value="1">Ana Beatriz</option>
-                          <option value="2">Carlos Eduardo</option>
-                          <option value="3">Mariana Silva</option>
-                          <option value="4">Felipe Santos</option>
-                        </select>
-                        <div
-                          class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-gray-500"
-                        >
-                          <i class="ri-arrow-down-s-line"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <label
-                        for="taskStatus"
-                        class="block text-sm font-medium text-gray-700 mb-1"
-                        >Status</label
-                      >
-                      <div class="relative">
-                        <select
-                          id="taskStatus"
-                          class="w-full px-4 py-2 border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8"
-                        >
-                          <option value="pending">Pendente</option>
-                          <option value="in_progress">Em progresso</option>
-                          <option value="completed">Concluído</option>
-                        </select>
-                        <div
-                          class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-gray-500"
-                        >
-                          <i class="ri-arrow-down-s-line"></i>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="form-group">
+                    <label for="taskTitle">Título da tarefa</label>
+                    <input type="text" id="taskTitle" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="taskDescription">Descrição</label>
+                    <textarea id="taskDescription" rows="4"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="taskDueDate">Data de prazo</label>
+                    <input type="date" id="taskDueDate" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="taskPriority">Prioridade</label>
+                    <select id="taskPriority">
+                      <option value="low">Baixa</option>
+                      <option value="medium">Média</option>
+                      <option value="high">Alta</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="taskAssignee">Responsáveis</label>
+                    <select id="taskAssignee" multiple>
+                      <option value="1">Ana Beatriz</option>
+                      <option value="2">Carlos Eduardo</option>
+                      <option value="3">Mariana Silva</option>
+                      <option value="4">Felipe Santos</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="taskStatus">Status</label>
+                    <select id="taskStatus">
+                      <option value="pendente">Pendente</option>
+                      <option value="em_andamento">Em progresso</option>
+                      <option value="concluida">Concluído</option>
+                    </select>
                   </div>
                 </form>
               </div>
-              <div
-                class="p-6 border-t border-gray-200 flex justify-end space-x-4"
-              >
-                <button
-                  id="cancelTaskBtn"
-                  class="px-4 py-2 border border-gray-300 rounded-button font-medium text-gray-700 hover:bg-gray-50 transition-colors whitespace-nowrap"
-                >
-                  Cancelar
-                </button>
-                <button
-                  id="saveTaskBtn"
-                  class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
-                >
-                  Salvar
-                </button>
+              <div class="modal-footer">
+                <button id="cancelTaskBtn" class="btn-cancelar">Cancelar</button>
+                <button id="saveTaskBtn" class="btn-salvar">Salvar</button>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <!-- Lista de Tarefas -->
-          <div class="lg:col-span-2">
-            <div class="space-y-4">
-              <div class="bg-white border border-gray-200 rounded-lg p-4">
-                <div class="flex items-center justify-between mb-3">
-                  <h3 class="font-medium text-gray-800">
-                    Desenvolvimento da Landing Page
-                  </h3>
-                  <span
-                    class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Em progresso</span
-                  >
+        <div class="grid-tarefas">
+          <div class="lista-tarefas">
+            <div class="card-tarefa">
+              <div class="card-header">
+                <h3>Desenvolvimento da Landing Page</h3>
+                <span class="status em-progresso">Em progresso</span>
+              </div>
+              <div class="progresso">
+                <div class="progresso-info">
+                  <span>Progresso</span><span>75%</span>
                 </div>
-                <div class="mb-3">
-                  <div
-                    class="flex justify-between text-sm text-gray-500 mb-1"
-                  >
-                    <span>Progresso</span>
-                    <span>75%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      class="bg-primary h-2 rounded-full"
-                      style="width: 75%"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="flex items-center justify-between text-sm"
-                >
-                  <div class="flex items-center text-gray-500">
-                    <i class="ri-calendar-line mr-1"></i>
-                    <span>Prazo: 30/05/2025</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <button class="text-gray-400 hover:text-gray-600">
-                      <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="text-gray-400 hover:text-red-500">
-                      <i class="ri-delete-bin-line"></i>
-                    </button>
-                  </div>
+                <div class="barra">
+                  <div class="barra-preenchida w-75"></div>
                 </div>
               </div>
-
-              <div class="bg-white border border-gray-200 rounded-lg p-4">
-                <div class="flex items-center justify-between mb-3">
-                  <h3 class="font-medium text-gray-800">Otimização de SEO</h3>
-                  <span
-                    class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Concluído</span
-                  >
+              <div class="card-footer">
+                <div class="data">
+                  <i class="ri-calendar-line"></i> Prazo: 30/05/2025
                 </div>
-                <div class="mb-3">
-                  <div
-                    class="flex justify-between text-sm text-gray-500 mb-1"
-                  >
-                    <span>Progresso</span>
-                    <span>100%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      class="bg-green-500 h-2 rounded-full"
-                      style="width: 100%"
-                    ></div>
-                  </div>
-                </div>
-                <div
-                  class="flex items-center justify-between text-sm"
-                >
-                  <div class="flex items-center text-gray-500">
-                    <i class="ri-calendar-line mr-1"></i>
-                    <span>Concluído em 24/05/2025</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <button class="text-gray-400 hover:text-gray-600">
-                      <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="text-gray-400 hover:text-red-500">
-                      <i class="ri-delete-bin-line"></i>
-                    </button>
-                  </div>
+                <div class="acoes">
+                  <button><i class="ri-edit-line"></i></button>
+                  <button><i class="ri-delete-bin-line"></i></button>
                 </div>
               </div>
+            </div>
 
-              <div class="bg-white border border-gray-200 rounded-lg p-4">
-                <div class="flex items-center justify-between mb-3">
-                  <h3 class="font-medium text-gray-800">Análise de Métricas</h3>
-                  <span
-                    class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded"
-                    >Atrasado</span
-                  >
+            <div class="card-tarefa">
+              <div class="card-header">
+                <h3>Otimização de SEO</h3>
+                <span class="status concluido">Concluído</span>
+              </div>
+              <div class="progresso">
+                <div class="progresso-info">
+                  <span>Progresso</span><span>100%</span>
                 </div>
-                <div class="mb-3">
-                  <div
-                    class="flex justify-between text-sm text-gray-500 mb-1"
-                  >
-                    <span>Progresso</span>
-                    <span>30%</span>
-                  </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      class="bg-red-500 h-2 rounded-full"
-                      style="width: 30%"
-                    ></div>
-                  </div>
+                <div class="barra">
+                  <div class="barra-preenchida w-100"></div>
                 </div>
-                <div
-                  class="flex items-center justify-between text-sm"
-                >
-                  <div class="flex items-center text-gray-500">
-                    <i class="ri-calendar-line mr-1"></i>
-                    <span>Prazo: 20/05/2025</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <button class="text-gray-400 hover:text-gray-600">
-                      <i class="ri-edit-line"></i>
-                    </button>
-                    <button class="text-gray-400 hover:text-red-500">
-                      <i class="ri-delete-bin-line"></i>
-                    </button>
-                  </div>
+              </div>
+              <div class="card-footer">
+                <div class="data">
+                  <i class="ri-calendar-line"></i> Concluído em 24/05/2025
+                </div>
+                <div class="acoes">
+                  <button><i class="ri-edit-line"></i></button>
+                  <button><i class="ri-delete-bin-line"></i></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-tarefa">
+              <div class="card-header">
+                <h3>Análise de Métricas</h3>
+                <span class="status atrasado">Atrasado</span>
+              </div>
+              <div class="progresso">
+                <div class="progresso-info">
+                  <span>Progresso</span><span>30%</span>
+                </div>
+                <div class="barra">
+                  <div class="barra-preenchida w-30"></div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="data">
+                  <i class="ri-calendar-line"></i> Prazo: 20/05/2025
+                </div>
+                <div class="acoes">
+                  <button><i class="ri-edit-line"></i></button>
+                  <button><i class="ri-delete-bin-line"></i></button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Assistente IA -->
-          <div class="bg-gray-50 rounded-lg p-6">
-            <div class="flex items-center mb-6">
-              <div
-                class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-3"
-              >
-                <i class="ri-robot-line text-primary text-xl"></i>
+          <div class="assistente-ia">
+            <div class="ia-header">
+              <div class="ia-icon">
+                <i class="ri-robot-line"></i>
               </div>
-              <div>
-                <h3 class="font-medium text-gray-800">Assistente IA</h3>
-                <p class="text-sm text-gray-500">
-                  Ajuda inteligente para suas tarefas
-                </p>
+              <div class="titulo-chat">
+                <h3>Assistente IA</h3>
+                <p>Assitência inteligente para suas tarefas</p>
               </div>
             </div>
-            <div
-              class="bg-white rounded-lg p-4 mb-4 h-[300px] overflow-y-auto"
-              id="aiChat"
-            >
-              <div class="space-y-4">
-                <div class="flex items-start">
-                  <div
-                    class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-2 flex-shrink-0"
-                  >
-                    <i class="ri-robot-line text-primary"></i>
-                  </div>
-                  <div class="bg-gray-100 rounded-lg p-3 max-w-[80%]">
-                    <p class="text-sm text-gray-800">
-                      Olá! Como posso ajudar com suas tarefas hoje?
-                    </p>
-                  </div>
+            <div class="ia-chat" id="aiChat">
+              <div class="mensagem-ia">
+                <div class="ia-avatar">
+                  <i class="ri-robot-line"></i>
+                </div>
+                <div class="ia-msg">
+                  <p>Olá! Como posso ajudar com suas tarefas hoje?</p>
                 </div>
               </div>
             </div>
-            <div class="relative">
+            <div class="ia-input-container">
               <input
                 type="text"
                 id="aiInput"
                 placeholder="Digite sua pergunta..."
-                class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
-              <button
-                id="aiSendBtn"
-                class="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 flex items-center justify-center text-primary hover:bg-primary/10 rounded-full"
-              >
+              <button id="aiSendBtn">
                 <i class="ri-send-plane-fill"></i>
               </button>
             </div>
@@ -383,7 +218,6 @@
         </div>
       </div>
     </div>
-  </div>
 
  <!-- Rodapé -->
 <footer class="rodape">
@@ -449,7 +283,9 @@
   </div>
 </footer>
 <!-- Fim do Rodapé -->
+ </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/assets/css/modo-escuro.js"></script>
+<script src="tarefas.js"></script>
 
-  <script src="tcc.js"></script>
-</body>
 </html>

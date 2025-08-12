@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TalkyCs - Sua plataforma de gerenciamento de tarefas</title>
- <link rel="website icon"  type="png" href="/images/logo.PNG.png">
+ <link rel="website icon"  type="png" href="/Tcc/images/logo.PNG.png">
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>tailwind.config = { theme: { extend: { colors: { primary: '#FF6B00', secondary: '#000000' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
   <link id="style1" rel="stylesheet" href="perfil.css">
-  <link id="style-escuro" rel="stylesheet" href="Modo_escuro.css">
+    <link id="style-escuro" rel="stylesheet" href="/assets/css/modo-escuro.css" disabled>
 </head>
 
 <body>
@@ -29,10 +29,9 @@
             </a>
 
             <!-- Div dos botões da tela de inicio -->
-            <div id="Centralizar">
+         <div id="Centralizar">
                 <a id="link-menu" href="/paginas/inicio/inicio.html">Início</a>
                 <a id="link-menu" href="/paginas/beneficios/beneficios.html">Benefícios</a>
-                <a id="link-menu" href="/paginas/comunicacao/comunicação.html">Comunicação</a>
                 <a id="link-menu" href="/paginas/seguranca/segurança.html">Segurança</a>
                 <a id="link-menu" href="/paginas/suporte/suporte.html">Suporte</a>
                 <a id="link-menu" href="/paginas/chat/chat.html">Chat</a>
@@ -40,8 +39,8 @@
                 <a id="link-menu" href="/paginas/perfil/perfil.html">Perfil</a>
             </div>
             <div id="botoes-login">
-                <a id="link-entrar" href="AreaLogin.html">Entrar</a>
-                <a id="botao-registrar" href="AreaRegistro.html">Registrar</a>
+                <a id="link-entrar" href="/paginas/login/login.html">Entrar</a>
+                <a id="botao-registrar" href="/paginas/registro/registro.html">Registrar</a>
             </div>
         </div>
     </nav>
@@ -153,6 +152,8 @@
             <button class="btn-salvar">Salvar alterações</button>
           </div>
         </div>
+
+
 <div class="grid-preferencias">
   <div class="card-preferencias">
     <h3>Preferências de conta</h3>
@@ -178,9 +179,23 @@
   </div>
 </div>
 
+
+
+<div class="visibilidade-perfil">
+  <h4 class="titulo-bloco">Nível de visibilidade do perfil</h4>
+  <div class="controle-slider">
+    <input type="range" min="0" max="2" value="0" class="slider-visibilidade" id="sliderPerfil" />
+    <div class="opcoes-visibilidade" id="opcoesPerfil">
+      <span class="ativo" data-index="0">Apenas <br/>eu</span>
+      <span data-index="1">Equipe</span>
+      <span data-index="2">Todos</span>
+    </div>
+  </div>
+</div>
+
           <div class="card-seguranca">
             <h3>Segurança da conta</h3>
-            <button class="btn-seguranca">Alterar senha</button>
+            <button id="botao-abrir-modal" class="btn-seguranca" onclick="abrirModalSenha()">Alterar senha</button>
             <button class="btn-seguranca">Autenticação de dois fatores</button>
             <button class="btn-seguranca">Dispositivos conectados</button>
             <button class="btn-seguranca">Histórico de atividades</button>
@@ -192,7 +207,20 @@
   </div>
 </div>
 
+<!-- Botão para abrir o modal -->
+<button id="botao-abrir-modal">Alterar Senha</button>
+<!-- Ou outro botão extra -->
+<button id="abrir-modal-senha-final">Alterar Senha</button>
 
+<!-- Modal de senha -->
+<div id="modal-senha" class="hidden">
+  <div class="modal-conteudo">
+    <h2>Alterar Senha</h2>
+    <input type="password" id="nova-senha" placeholder="Nova Senha">
+    <button id="btn-salvar-senha">Salvar</button>
+    <button id="btn-fechar-modal">Fechar</button>
+  </div>
+</div>
 
 <!-- Rodapé -->
 <footer class="rodape">
@@ -260,6 +288,7 @@
 <!-- Fim do Rodapé -->
 
 </body>
-<script src="tcc.js"></script>
+<script src="/assets/css/modo-escuro.js"></script>
+<script type="module" src="perfil.js"></script>
 
 </html>

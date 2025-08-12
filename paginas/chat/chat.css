@@ -3,13 +3,40 @@
 /* Fontes utilizadas no site */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: gray-200;
+  background-color: #F8F8FF;
+}
+
+.emoji-picker {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+.emoji-picker.hidden {
+  display: none;
+}
+.emoji-item {
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.emoji-item:hover {
+  transform: scale(1.2);
 }
 
 /* Estilização do Cabeçalho */
 
 .fundo-cabecalho {
-  background-color: #e5e7eb; /* bg-gray-200 */
+  background-color: #F8F8FF; /* bg-gray-200 */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-md */
   position: sticky; /* sticky */
   top: 0; /* top-0 */
@@ -97,6 +124,400 @@ body {
 }
 
 /* Fim do cabeçalho */
+
+/* Inicio da estilização do Chat */
+ .main-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .chat-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 2rem;
+    }
+
+    .chat-container {
+      display: flex;
+      height: 700px;
+      width: 1100px;
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+
+    .contact-list {
+      width: 280px;
+      background-color: #ffffff;
+      border-right: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .search-bar {
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .input-search {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.5rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      background-color: #f9fafb;
+      font-size: 0.9rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 1.4rem;
+      left: 1.5rem;
+      color: #9ca3af;
+      pointer-events: none;
+      font-size: 1rem;
+    }
+
+    .contact-items {
+      padding: 0.5rem;
+    }
+
+    .contact-button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 10px;
+      background-color: transparent;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .contact-button:hover,
+    .contact-button.active {
+      background-color: #f1f5f9;
+    }
+
+    .contact-button-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .profile-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: start;
+    }
+
+    .profile-pic {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .status-indicator {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #10b981;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    .contact-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #111827;
+    }
+
+    .contact-message {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .contact-meta {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-size: 0.75rem;
+      color: #9ca3af;
+    }
+
+    .notification-badge {
+      background-color: #ef4444;
+      color: white;
+      width: 20px;
+      height: 20px;
+      font-size: 0.75rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chat-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background-color: #f9fafb;
+    }
+
+    .chat-header {
+      padding: 1rem;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .user-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .user-status {
+      font-size: 0.75rem;
+      color: #10b981;
+      margin-left: -80px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .action-button {
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      color: #9ca3af;
+      cursor: pointer;
+      padding: 0.4rem;
+      border-radius: 50%;
+      transition: background-color 0.2s;
+    }
+
+    .action-button:hover {
+      background-color: #f97316;
+      color: #111827;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .date-label {
+      font-size: 0.75rem;
+      text-align: center;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+    }
+
+    .chat-message {
+      max-width: 75%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    .chat-message.received {
+      align-self: flex-start;
+      background-color: #e5e7eb;
+      color: #111827;
+    }
+
+    .chat-message.sent {
+      align-self: flex-end;
+      background-color: #3b82f6;
+      color: white;
+    }
+
+    .chat-message.file-message {
+      display: flex;
+      align-items: center;
+      background-color: #f1f5f9;
+      border-left: 4px solid #ef4444;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      gap: 0.75rem;
+      max-width: 80%;
+    }
+
+    .file-icon i {
+      font-size: 1.5rem;
+      color: #ef4444;
+    }
+
+    .file-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .file-name {
+      font-weight: 600;
+    }
+
+    .file-size {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .message-input {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      border-top: 1px solid #e5e7eb;
+      background-color: #ffffff;
+    }
+
+    .input-message {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      font-size: 1rem;
+      border-radius: 9999px;
+      border: 1px solid #d1d5db;
+      background-color: #f9fafb;
+    }
+
+    .input-message:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .emoji-button,
+    .attachment-button,
+    .send-button {
+      background: transparent;
+      border: none;
+      font-size: 1.3rem;
+      color: #9ca3af;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .emoji-button:hover,
+    .attachment-button:hover {
+      color: orange;
+    }
+
+    .send-button {
+      background-color: #f97316;
+      color: white;
+      padding: 0.5rem 0.7rem;
+      border-radius: 50%;
+    }
+
+    .send-button:hover {
+      background-color: orange;
+    }
+
+   .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* garante que ficará sobre todo o conteúdo */
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  min-width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content.video .video-simulation {
+  width: 300px;
+  height: 200px;
+  background: black;
+  margin: 10px auto;
+  border-radius: 8px;
+}
+
+.camera-preview {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  background: black;
+  object-fit: cover;
+}
+
+.call-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px auto;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+
+/*Fim da estilização do chat
 
 /* Rodapé */
 .rodape {
@@ -300,7 +721,7 @@ body {
 
 .contact-info {
   display: flex;
-  align-items: center;
+  align-items: start;
 }
 
 .contact-info img {
@@ -434,4 +855,15 @@ body {
   background-color: #ff6b00; /* bg-primary */
   color: white; /* text-white */
   border-radius: 50%; /* rounded-full */
+}
+
+/* Torna o texto das informações do arquivo preto nas mensagens enviadas */
+.chat-message.sent .file-info .file-name,
+.chat-message.sent .file-info .file-size {
+  color: #212121; /* Um tom de cinza escuro para melhor legibilidade */
+}
+
+/* Opcional: Ajusta a cor do ícone do arquivo para combinar */
+.chat-message.sent .file-icon i {
+  color: #212121;
 }

@@ -36,58 +36,58 @@ formReset.addEventListener('submit', async (e) => {
 
     const email = document.getElementById('reset-email').value.trim();
     const novaSenha = document.getElementById('new-password').value.trim();
+}
 
     if (!email || !novaSenha) {
-        // Substituindo o alert() por SweetAlert2
-        Swal.fire({
-            icon: 'warning',
-            title: 'Atenção!',
-            text: 'Por favor, preencha todos os campos.',
-            theme: theme
-        });
-        return;
-    }
+    // Substituindo o alert() por SweetAlert2
+    Swal.fire({
+        icon: 'warning',
+        title: 'Atenção!',
+        text: 'Por favor, preencha todos os campos.',
+        theme: theme
+    });
+    return;
+}
 
-    try {
+try {
+    if (resposta.ok) {
+        // Salva o token retornado pela API
+        localStorage.setItem('token', resultado.token);
+
+        // Salva também o authToken para a barra mudar para Logout
+        localStorage.setItem('authToken', resultado.token);
+
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // Salva estado de login no navegador
+                localStorage.setItem("usuarioLogado", "true");
+
+                // Redireciona para a página inicial
+                window.location.href = "/paginas/inicio/inicio.html";
+            })
+
+            .catch((error) => {
+                console.error("Erro no login:", error);
+            });
+
+
         if (resposta.ok) {
-            // Salva o token retornado pela API
-            localStorage.setItem('token', resultado.token);
-
-            // Salva também o authToken para a barra mudar para Logout
-            localStorage.setItem('authToken', resultado.token);
-
-            signInWithPopup(auth, provider)
-                .then((result) => {
-                    // Salva estado de login no navegador
-                    localStorage.setItem("usuarioLogado", "true");
-
-                    // Redireciona para a página inicial
-                    window.location.href = "/paginas/inicio/inicio.html";
-                })
-
-                .catch((error) => {
-                    console.error("Erro no login:", error);
-                });
-
-
-            if (resposta.ok) {
-                // Substituindo o alert() de sucesso
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sucesso!',
-                    text: 'Sua senha foi redefinida com sucesso!',
-                    theme: theme
-                });
-                modal.classList.add('hidden');
-            } else {
-                // Substituindo o alert() de erro
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: `Erro: ${resultado.message}`,
-                    theme: theme
-                });
-            }
+            // Substituindo o alert() de sucesso
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: 'Sua senha foi redefinida com sucesso!',
+                theme: theme
+            });
+            modal.classList.add('hidden');
+        } else {
+            // Substituindo o alert() de erro
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `Erro: ${resultado.message}`,
+                theme: theme
+            });
         }
     } catch (erro) {
         console.error("Erro:", erro);
@@ -99,7 +99,6 @@ formReset.addEventListener('submit', async (e) => {
             theme: theme
         });
     }
-
 });
 
 // Lógica de Login

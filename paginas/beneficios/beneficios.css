@@ -9,7 +9,7 @@ body {
 /* Estilização do Cabeçalho */
 
 .fundo-cabecalho {
-  background-color: #e5e7eb; /* bg-gray-200 */
+  background-color: #F8F8FF; /* bg-gray-200 */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-md */
   position: sticky; /* sticky */
   top: 0; /* top-0 */
@@ -119,7 +119,7 @@ body {
 /* Seção de Benefícios */
 .beneficios-section {
   padding: 4rem 0;
-  background-color: #e5e7eb;
+  background-color: #F8F8FF;
 }
 
 .beneficios-container {

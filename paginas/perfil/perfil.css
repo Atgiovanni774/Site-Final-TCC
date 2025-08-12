@@ -1,21 +1,22 @@
-/* Fontes e Estilos Básicos */
+:where([class^="ri-"])::before { content: "\f3c2"; }
+
+#perfil.modo-transicao * {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Fontes utilizadas no site */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #e5e7eb;
 }
 
+/* Estilização do Cabeçalho */
 
-:where([class^="ri-"])::before {
-  content: "\f3c2";
-}
-
-/* --- Estilização do Cabeçalho --- */
 .fundo-cabecalho {
-  background-color: #e5e7eb; 
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
-  position: sticky; 
-  top: 0;
-  z-index: 50; 
+  background-color: #F8F8FF; /* bg-gray-200 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-md */
+  position: sticky; /* sticky */
+  top: 0; /* top-0 */
+  z-index: 50; /* z-50 */
 }
 
 .container {
@@ -23,54 +24,64 @@ body {
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Mantém os itens nas extremidades */
-  align-items: center; /* Centraliza verticalmente os itens do cabeçalho */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
+.logo{
+    display: flex; 
+    align-items: center;
 }
 
-.Logo {
-  width: 50px;
-  height: 50px;
+.modal-conteudo {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Certifique-se de que o modal esteja acima de outros conteúdos */
+}
+
+.Logo{
+    width: 50px;
+    height: 50px;
 }
 
 /* Menu de navegação */
-#Centralizar { /* Renomeei para ser mais descritivo, como .menu-nav ou .nav-links */
+#Centralizar {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center; 
- 
-  gap: 1rem; 
+  align-items: center;
+    
 }
 
 @media (min-width: 768px) {
   #Centralizar {
-    gap: 2rem;
+    display: flex;
+    gap: 2rem; 
   }
 }
 
 #link-menu {
-  color: #1f2937;
-  font-weight: 500;
+  color: #1f2937; 
+  font-weight: 500; 
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 #link-menu:hover {
-  color: #f97316;
+  color: #f97316; 
 }
 
 /* Botões de login/registro */
 #botoes-login {
   display: flex;
-  align-items: center; /* Centraliza verticalmente os botões */
-  gap: 1rem;
+  align-items: center;
+  gap: 1rem; 
 }
 
 #link-entrar {
@@ -85,10 +96,10 @@ body {
 }
 
 #botao-registrar {
-  background-color: #f97316;
+  background-color: #f97316; 
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.5rem; 
   font-weight: 500;
   white-space: nowrap;
   text-decoration: none;
@@ -99,18 +110,23 @@ body {
   opacity: 0.9;
 }
 
-/* --- Fim do cabeçalho --- */
+/* Fim da Estilização do Cabeçalho */
 
 /* --- Container geral do Perfil --- */
 #perfil {
-  background-color: #e5e7eb; /* bg-gray-200 */
+  background-color: #F8F8FF;
   padding: 48px 16px;
+  /* Adiciona padding horizontal mínimo para telas muito pequenas */
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .grid-perfil {
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
+  max-width: 1200px; /* Limita a largura máxima do grid do perfil */
+  margin: 0 auto; /* Centraliza o grid do perfil */
 }
 
 @media (min-width: 768px) {
@@ -127,12 +143,15 @@ body {
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 24px;
+  /* Garante que o padding horizontal não cause overflow em telas pequenas */
+  box-sizing: border-box;
 }
 
 .perfil-info {
   display: flex;
   flex-direction: column;
-  align-items: center; /* **Centraliza os itens verticalmente dentro do perfil-info** */
+  align-items: center;
+  text-align: center; /* Centraliza o texto dentro de perfil-info */
 }
 
 .foto-perfil {
@@ -142,6 +161,7 @@ body {
   overflow: hidden;
   background-color: #e5e7eb;
   margin-bottom: 16px;
+  flex-shrink: 0; /* Impede que a imagem encolha em layouts flexíveis */
 }
 
 .foto-perfil img {
@@ -154,16 +174,21 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 8px;
-  text-align: center; /* **Centraliza o texto do nome do perfil** */
+  text-align: center;
+  /* Adiciona responsividade ao tamanho da fonte em telas menores */
+  font-size: clamp(1rem, 4vw, 1.25rem);
 }
 
 .status-perfil {
   display: flex;
-  align-items: center; /* Centraliza os itens verticalmente */
+  align-items: center;
   font-size: 0.875rem;
   color: #4b5563;
   margin-bottom: 16px;
-  justify-content: center; /* **Centraliza o status do perfil horizontalmente** */
+  justify-content: center;
+  /* Adiciona responsividade ao tamanho da fonte */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
+  flex-wrap: wrap; /* Permite que o texto do status quebre a linha */
 }
 
 .status-indicador {
@@ -171,6 +196,7 @@ body {
   height: 8px;
   border-radius: 9999px;
   margin-right: 6px;
+  flex-shrink: 0; /* Impede que o indicador encolha */
 }
 
 .verde {
@@ -196,6 +222,10 @@ body {
   border: none;
   cursor: pointer;
   margin-bottom: 16px;
+  /* Adiciona padding para facilitar o clique */
+  padding: 0.5rem 1rem;
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .detalhes-perfil {
@@ -208,14 +238,19 @@ body {
 .linha-membro {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Centraliza os itens verticalmente */
+  align-items: center;
   margin-bottom: 8px;
   font-size: 0.875rem;
   color: #4b5563;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .menu-status {
   position: relative;
+  /* Garante que o menu suspenso não cause overflow */
+  z-index: 10;
 }
 
 .btn-status-toggle {
@@ -225,6 +260,8 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 0.25rem 0.5rem; /* Padding para área de clique */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .dropdown-status {
@@ -236,17 +273,23 @@ body {
   padding: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  /* Garante que o dropdown se ajuste à largura da tela */
+  min-width: 150px;
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 
 .opcao-status {
   display: flex;
-  align-items: center; /* Centraliza os itens verticalmente */
+  align-items: center;
   font-size: 0.875rem;
   width: 100%;
   background: none;
   border: none;
   padding: 8px;
   cursor: pointer;
+  text-align: left; /* Garante que o texto se alinha à esquerda */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .opcao-status:hover {
@@ -255,6 +298,11 @@ body {
 }
 
 /* Redes sociais */
+.card-redes {
+  /* Garante que o padding horizontal não cause overflow em telas pequenas */
+  box-sizing: border-box;
+}
+
 .lista-redes {
   display: flex;
   flex-direction: column;
@@ -263,12 +311,16 @@ body {
 
 .item-rede {
   display: flex;
-  align-items: center; 
+  align-items: center;
   gap: 12px;
+  flex-wrap: wrap; /* Permite que os itens quebrem a linha */
 }
 
 .item-rede i {
   font-size: 1.25rem;
+  flex-shrink: 0; /* Impede que o ícone encolha */
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(1rem, 4vw, 1.25rem);
 }
 
 .item-rede input {
@@ -277,6 +329,11 @@ body {
   border: 1px solid #d1d5db;
   border-radius: 6px;
   font-size: 0.875rem;
+  color: #1f2937;
+  /* Garante que o input não se estenda para além da tela */
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .btn-adicionar-rede {
@@ -285,6 +342,8 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0.5rem 1rem; /* Padding para área de clique */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 /* Conteúdo do perfil */
@@ -301,6 +360,8 @@ body {
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Garante que o padding horizontal não cause overflow em telas pequenas */
+  box-sizing: border-box;
 }
 
 .card-infos h2,
@@ -309,7 +370,9 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 16px;
-  text-align: center; 
+  text-align: center;
+  /* Adiciona responsividade ao tamanho da fonte */
+  font-size: clamp(1rem, 4vw, 1.25rem);
 }
 
 .formulario {
@@ -333,6 +396,7 @@ body {
   font-size: 0.875rem;
   margin-bottom: 4px;
   color: #374151;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .campo input,
@@ -344,12 +408,17 @@ body {
   border-radius: 6px;
   font-size: 0.875rem;
   color: #1f2937;
+  box-sizing: border-box; /* Garante que padding e border estão inclusos na largura */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .acoes {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   margin-top: 16px;
+  /* Flex-wrap para permitir que botões quebrem a linha */
+  flex-wrap: wrap;
+  gap: 10px; /* Espaçamento entre os botões se houver mais de um */
 }
 
 .btn-salvar {
@@ -360,6 +429,10 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.875rem;
+  /* Garante que o botão não seja muito pequeno em telas pequenas */
+  min-width: 100px;
+  text-align: center;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .btn-salvar:hover {
@@ -368,20 +441,21 @@ body {
 
 /* --- Preferências e segurança --- */
 .grid-preferencias {
-  display: grid;
+  align-items: center;
+  justify-content: center;
   grid-template-columns: 1fr;
   gap: 24px;
 }
 
-
 /* Estilo para cada opção de preferência */
 .opcao {
   display: flex;
-  justify-content: space-between; /* Mantém label e toggle nas extremidades */
-  align-items: center; /* Centraliza verticalmente os itens */
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 15px;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
+  flex-wrap: wrap; /* Permite que o label e o toggle quebrem a linha */
 }
 
 .opcao:last-child {
@@ -395,9 +469,12 @@ body {
   font-size: 16px;
   flex-grow: 1;
   cursor: pointer;
+  /* Garante que o label não seja muito pequeno em telas pequenas */
+  min-width: 0;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
 }
 
-/* --- Estilos para TODOS os Toggle Switches (conforme solicitado anteriormente) --- */
+/* --- Estilos para TODOS os Toggle Switches --- */
 .opcao input[type="checkbox"] {
   position: relative;
   width: 40px;
@@ -411,6 +488,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin-left: 10px;
+  /* Garante que o toggle não seja afetado por flex-grow do label */
+  flex-shrink: 0;
 }
 
 .opcao input[type="checkbox"]::before {
@@ -427,11 +506,85 @@ body {
 }
 
 .opcao input[type="checkbox"]:checked {
-  background-color: #f97316; /* Usando a cor laranja do seu tema */
+  background-color: #f97316;
 }
 
 .opcao input[type="checkbox"]:checked::before {
   transform: translateX(20px);
+}
+
+.visibilidade-perfil {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; /* Garante que o padding horizontal não cause overflow */
+}
+
+.controle-slider {
+  width: 100%;
+  max-width: 360px;
+}
+
+.slider-visibilidade {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 0.5rem;
+}
+
+.slider-visibilidade::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #f97316;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.opcoes-visibilidade {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  position: relative;
+  margin-top: 0.25rem;
+  width: 100%; /* Garante que as opções ocupem a largura total do slider */
+  flex-wrap: wrap; /* Permite que as opções quebrem a linha */
+}
+
+.opcoes-visibilidade span {
+  color: #6b7280;
+  font-weight: 400;
+  position: relative;
+  padding-top: 4px;
+  /* Adiciona flex-basis para distribuição mais igualitária */
+  flex-basis: 30%; /* Exemplo: cada um ocupa cerca de 1/3 */
+  text-align: center;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
+}
+
+.opcoes-visibilidade .ativo {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.opcoes-visibilidade .ativo::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #f97316;
+  border-radius: 50%;
+  margin-top: 4px;
 }
 
 @media (min-width: 768px) {
@@ -452,6 +605,8 @@ body {
   margin-bottom: 8px;
   background-color: #ffffff;
   cursor: pointer;
+  box-sizing: border-box; /* Garante que padding e border estão inclusos na largura */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .btn-seguranca:hover {
@@ -469,14 +624,17 @@ body {
 
 /* --- Rodapé --- */
 .rodape {
-  background-color: #111827; /* bg-gray-900 */
+  background-color: #111827;
   color: white;
   padding: 3rem 0;
+  /* Garante que o padding horizontal mínimo para telas muito pequenas */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
 }
 
 .rodape-container {
   max-width: 1200px;
-  /* Centraliza o container horizontalmente */
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -485,7 +643,8 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  /* Este grid é centralizado por seu pai (.rodape-container) */
+  /* Garante que o grid do rodapé use a largura total disponível */
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -504,31 +663,43 @@ body {
   width: 3rem;
   height: 3rem;
   margin-right: 0.5rem;
+  /* Garante que a imagem se ajusta ao contêiner */
+  max-width: 100%;
+  height: auto;
 }
 
 .rodape-descricao {
-  color: #9ca3af; /* text-gray-400 */
+  color: #9ca3af;
   margin-bottom: 1rem;
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .rodape-redes {
   display: flex;
   gap: 1rem;
+  /* Permite que os ícones quebrem a linha se necessário */
+  flex-wrap: wrap;
 }
 
 .rodape-redes a {
   color: #9ca3af;
   transition: color 0.3s ease;
+  font-size: 1.25rem; /* Garante que os ícones tenham um tamanho razoável */
+  /* Adiciona padding para área de clique */
+  padding: 0.25rem;
 }
 
 .rodape-redes a:hover {
-  color: #f97316; /* hover:text-orange-500 */
+  color: #f97316;
 }
 
 .rodape-titulo {
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(1rem, 4vw, 1.125rem);
 }
 
 .rodape-lista {
@@ -545,6 +716,8 @@ body {
   color: #9ca3af;
   text-decoration: none;
   transition: color 0.3s ease;
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .rodape-lista a:hover {
@@ -553,16 +726,21 @@ body {
 
 .rodape-form {
   display: flex;
+  width: 100%; /* Garante que o formulário ocupe a largura total disponível */
 }
 
 .rodape-input {
   flex: 1;
-  background-color: #1f2937; /* bg-gray-800 */
+  background-color: #1f2937;
   border: none;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   padding: 0.5rem 1rem;
   color: white;
+  /* Garante que o input não se estenda para além da tela */
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .rodape-botao {
@@ -574,17 +752,18 @@ body {
   border: none;
   cursor: pointer;
   white-space: nowrap;
+  font-size: clamp(0.75rem, 3vw, 0.875rem);
 }
 
 .rodape-direitos {
-  border-top: 1px solid #1f2937; /* border-gray-800 */
+  border-top: 1px solid #1f2937;
   margin-top: 3rem;
   padding-top: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center; /* **Centraliza os itens verticalmente** */
+  align-items: center;
   gap: 1rem;
-  text-align: center; /* **Centraliza o texto** */
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -598,11 +777,16 @@ body {
 .rodape-direitos p {
   color: #9ca3af;
   font-size: 0.875rem;
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(0.7rem, 2.5vw, 0.875rem);
 }
 
 .rodape-links {
   display: flex;
   gap: 1.5rem;
+  /* Permite que os links quebrem a linha */
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os links em telas menores */
 }
 
 .rodape-links a {
@@ -610,6 +794,9 @@ body {
   font-size: 0.875rem;
   text-decoration: none;
   transition: color 0.3s ease;
+  /* Ajusta o tamanho da fonte */
+  font-size: clamp(0.7rem, 2.5vw, 0.875rem);
+  padding: 0.25rem 0.5rem; /* Padding para área de clique */
 }
 
 .rodape-links a:hover {

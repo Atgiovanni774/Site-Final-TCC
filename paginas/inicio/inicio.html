@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TalkyCs - Sua plataforma de gerenciamento de tarefas</title>
-    <link rel="website icon"  type="png" href="/images/logo.PNG.png"> <!--logo do talky CS adicionado a aba-->
+    <link rel="website icon"  type="png" href="/Tcc/images/logo.PNG.png"> <!--logo do talky CS adicionado a aba-->
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>tailwind.config = { theme: { extend: { colors: { primary: '#FF6B00', secondary: '#000000' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <link id="style1" rel="stylesheet" href="inicio.css">
-    <link id="style-escuro" rel="stylesheet" href="Modo_escuro.css">
+   <link id="style-escuro" rel="stylesheet" href="/assets/css/modo-escuro.css" disabled>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -31,7 +31,6 @@
             <div id="Centralizar">
                 <a id="link-menu" href="/paginas/inicio/inicio.html">Início</a>
                 <a id="link-menu" href="/paginas/beneficios/beneficios.html">Benefícios</a>
-                <a id="link-menu" href="/paginas/comunicacao/comunicação.html">Comunicação</a>
                 <a id="link-menu" href="/paginas/seguranca/segurança.html">Segurança</a>
                 <a id="link-menu" href="/paginas/suporte/suporte.html">Suporte</a>
                 <a id="link-menu" href="/paginas/chat/chat.html">Chat</a>
@@ -39,11 +38,12 @@
                 <a id="link-menu" href="/paginas/perfil/perfil.html">Perfil</a>
             </div>
             <div id="botoes-login">
-                <a id="link-entrar" href="/paginas/login/login.html">Entrar</a>
-                <a id="botao-registrar" href="/paginas/registro/registro.html">Registrar</a>
+                <a id="link-entrar" href="/paginas/login/login.html"  id="btnEntrar">Entrar</a>
+                <a id="botao-registrar" href="/paginas/registro/registro.html"id="btnRegistrar">Registrar</a>
             </div>
         </div>
     </nav>
+    </div>
 <!-- Fim do cabeçalho -->
 
    <!-- Corpo do Site -->
@@ -62,8 +62,8 @@
 
       <!-- Botões -->
       <div class="botoes-banner">
-        <a href="AreaLogin.html" class="botao-primario">Começar agora</a>
-        <a href="beneficios.html" id="Beneficios-Button" class="botao-secundario">Conheça os benefícios</a>
+        <a href="/paginas/registro/registro.html" class="botao-primario">Começar agora</a>
+        <a href="/paginas/beneficios/beneficios.html" id="Beneficios-Button" class="botao-secundario">Conheça os benefícios</a>
       </div>
     </div>
   </div>
@@ -72,18 +72,8 @@
 <!--Fim da tela inicial-->
 
    <!-- Seção de Painel -->
-<section class="painel-section">
+<section id="painel" class="painel-section">
   <div class="painel-container">
-
-    <!-- Título -->
-    <div class="painel-titulo">
-      <h2>Acesso Rápido às Funcionalidades</h2>
-      <p>
-        Nossa plataforma oferece um dashboard intuitivo para que
-        você tenha controle total sobre suas tarefas e comunicações.
-      </p>
-    </div>
-
     <!-- Blocos -->
     <div class="painel-grid">
 
@@ -94,7 +84,7 @@
         </div>
         <h3>IA de Tarefas</h3>
         <p>Receba lembretes inteligentes e organize suas tarefas diárias com nossa IA personalizada.</p>
-        <a href="#" class="btn-acessar">
+        <a href="/paginas/tarefas/tarefas.html" class="btn-acessar">
           Acessar <i class="ri-arrow-right-line"></i>
         </a>
       </div>
@@ -106,7 +96,7 @@
         </div>
         <h3>Comunicação</h3>
         <p>Conecte-se com sua equipe em tempo real e compartilhe informações de forma segura.</p>
-        <a href="#" class="btn-acessar">
+        <a href="/paginas/chat/chat.html" class="btn-acessar">
           Acessar <i class="ri-arrow-right-line"></i>
         </a>
       </div>
@@ -118,7 +108,7 @@
         </div>
         <h3>Segurança</h3>
         <p>Controle total sobre suas informações com criptografia avançada e autenticação em múltiplos fatores.</p>
-        <a href="#" class="btn-acessar">
+        <a href="/paginas/seguranca/segurança.html" class="btn-acessar">
           Acessar <i class="ri-arrow-right-line"></i>
         </a>
       </div>
@@ -137,7 +127,7 @@
       <!-- Logo e descrição -->
       <div>
         <a href="#" class="rodape-logo">
-          <img src="images/logo.PNG.png" alt="Log" class="logo-img">
+          <img src="/images/logo.PNG.png" alt="Log" class="logo-img">
         </a>
         <p class="rodape-descricao">Sua plataforma completa para gerenciamento de tarefas e comunicação segura.</p>
         <div class="rodape-redes">
@@ -193,7 +183,7 @@
   </div>
 </footer>
 </body>
-<script src="tcc.js"></script>
-<script src="Modo escuro.css"></script>
-
+<script src="/assets/css/modo-escuro.js"></script>
+<script src="inicio.js"></script>
+<script src="gerenciador-autenticacao.js"></script>
 </html>
