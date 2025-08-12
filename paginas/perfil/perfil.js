@@ -1,6 +1,7 @@
 // Inicialização do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 import { getAuth, updatePassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import config from "../../config/config.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBL1AtsLZjLzsWcILFv9207QHir_n9OnlU",
@@ -58,8 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const camposUsuario = [
-        "full-name",
-        "display-name",
+        "full_name",
+        "display_name",
         "email",
         "phone",
         "bio",
@@ -67,34 +68,103 @@ document.addEventListener("DOMContentLoaded", () => {
         "language"
     ];
 
-    function carregarDadosUsuario() {
-        const dadosSalvos = JSON.parse(localStorage.getItem("dadosPerfil"));
-        if (dadosSalvos) {
+    const dados = Object.freeze({
+        full_name: "nome_completo",
+        display_name: "nome_exibicao",
+        email: "email",
+        phone: "telefone",
+        bio: "bio",
+        location: "localizacao",
+        language: "idioma"
+    })
+
+    async function carregarDadosUsuario() {
+        const request = await fetch(`${config.BASE_URL}/login`)
+
+        if(!request.ok) {
+            console.log(`Erro ao carregar as informações do usuário!`)
+            return;
+        }
+
+        const result = await request.json();
+
+        const parts = localStorage.getItem('token').split('.')
+        const decodedPayload = atob(parts[1])
+        const payloadObject = JSON.parse(decodedPayload)
+        
+        let user = ""
+        if(result) {
+            result.forEach(item => {
+                if(item.email == payloadObject.email) {
+                    user = item
+                }
+            })
+        }
+
+        if(user) {
+            localStorage.setItem(`userId`, user.id)
             camposUsuario.forEach(id => {
-                console.log(`Id: ${id}`)
                 const campo = document.getElementById(id);
-                console.log(`Id: ${id}\nCampo: ${campo}`)
-                if (campo && dadosSalvos[id]) {
-                    if (campo.tagName === "SELECT") {
-                        campo.value = dadosSalvos[id];
-                    } else {
-                        campo.value = dadosSalvos[id];
-                    }
+                const mappedKey = dados[id]
+                if (campo) {
+                    const value = user[mappedKey] ?? ""
+                    campo.value = value;
+                }
+
+                if(id == "display_name") {
+                    const nome_quebrado = user["nome_completo"].split(' ')
+                    campo.value = nome_quebrado.length > 1 ? `${nome_quebrado[0]} ${nome_quebrado[nome_quebrado.length -1]}` : nome_quebrado[0];
                 }
             });
         }
     }
 
     function salvarDadosUsuario() {
-        const dados = {};
+        const data = {};
         camposUsuario.forEach(id => {
             const campo = document.getElementById(id);
+            const mappedKey = dados[id]
             if (campo) {
-                dados[id] = campo.value;
+                data[mappedKey] = campo.value;
             }
         });
-        localStorage.setItem("dadosPerfil", JSON.stringify(dados));
-        alert("Alterações salvas com sucesso!");
+        const jsonBody = JSON.stringify(data);
+        const userId = localStorage.getItem(`userId`)
+
+        fetch(`${config.BASE_URL}/perfil/${userId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: jsonBody
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(`Sucess: ${data}`);
+            alert(`Dados atualizados com sucesso!`)
+            location.reload();
+        })
+        .catch(error => {
+            console.error(`Error: ${JSON.stringify(error)}`)
+        })
+
+        // console.log(`Dados: ${JSON.stringify(data)}`);
+        // localStorage.setItem("dadosPerfil", JSON.stringify(dados));
+        // alert("Alterações salvas com sucesso!");
+        // const dados = {};
+        // camposUsuario.forEach(id => {
+        //     const campo = document.getElementById(id);
+        //     if (campo) {
+        //         dados[id] = campo.value;
+        //     }
+        // });
+        // localStorage.setItem("dadosPerfil", JSON.stringify(dados));
+        // alert("Alterações salvas com sucesso!");
     }
 
     const btnSalvar = document.querySelector(".btn-salvar");
